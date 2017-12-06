@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="import" href="./web-component/custom-element.html">
+<script src="./index.js"></script>
+
+<x-test id="a"></x-test>
+<hr />
+<x-test id="b"></x-test>
+<hr>
+<button id="c">数字リセット</button>
+<hr>
+<a href="./?ok">正常に動作するがグローバル汚染が発生してしまう</a> <a href="./?ng">グローバル汚染は発生しないが以下のエラーが出てしまう</a><br>
+本当はweb componentが表示されるはずが<code>document.currentScript.ownerDocument</code>の取得に失敗してしまう。
+<img src="./devtool-a.png" style="border:solid 2px black;">
+<hr>
+<a href="http://sourcechord.hatenablog.com/entry/2016/12/25/131247">こちらのページ</a>を参考にさせて頂きました。
