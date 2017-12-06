@@ -1,8 +1,5 @@
-let 動作する = document.location.search == "?ok";
-if(動作する){
-  //ownerDocumentをこの場所で宣言すると問題ないが、ownerDocumentがグローバルにセットされてしまう
-  var ownerDocument = document.currentScript.ownerDocument;
-}
+//ownerDocumentをこの場所で宣言すると問題ないが、ownerDocumentがグローバルにセットされてしまう
+//const ownerDocument = document.currentScript.ownerDocument;
 class XTest extends HTMLElement {
     constructor() {
         super();
@@ -11,9 +8,7 @@ class XTest extends HTMLElement {
 
     /** DOMに要素が追加された際に発生するイベント */
     connectedCallback() {
-        if(動作する == false){
-          var ownerDocument = document.currentScript.ownerDocument;
-        }
+        const ownerDocument = document.currentScript.ownerDocument;
         const template = ownerDocument.querySelector("#x-template");
         const instance = template.content.cloneNode(true);
         let shadowRoot = this.attachShadow({mode: 'open'});
